@@ -1,0 +1,13 @@
+len,m=map(int,input().split())
+tree=[]
+n=0
+for i in range(len+1):
+    tree.append(1)
+for i in range(m):
+    u,v=map(int,input().split())
+    for i in range(u,v+1):
+        tree[i]=0
+for i in range(len+1):
+    if tree[i]==1:
+        n+=1
+print(n)
