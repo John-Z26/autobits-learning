@@ -35,7 +35,7 @@ class Students:
             self.english = english
 #教务系统类
 class StudentSystem:
-    version = 1.1
+    version = 1.0
     system_name = "教务管理系统"
     def __init__(self):
         self.student_list = []
@@ -104,7 +104,7 @@ class StudentSystem:
                 print(f"{s}")
                 return
         print("未查询到该学生，请重新输入")
-    #5.展示全部学生成绩 ：展示出系统中所有学生的成绩
+    #5.展示全部学生成绩：展示出系统中所有学生的成绩
     def show_student(self):
         if not self.student_list:
             print("暂无学生信息")
@@ -120,23 +120,28 @@ class StudentSystem:
             print("# 1.添加学生 2.修改学生 3.删除学生 4.查询指定学生 5.查询全部学生 6.退出系统 #")
             print("# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ")
             print()
-            choice = input("请输入操作指令(1-6):")
-            match choice:
-                case "1":
-                    self.add_student()
-                case "2":
-                    self.update_student()
-                case "3":
-                    self.delete_student()
-                case "4":
-                    self.search_student()
-                case "5":
-                    self.show_student()
-                case "6":
-                    print("Bye~")
-                    break
-                case _:
-                    print("输入错误，请输入1-6之间的数字")
+            try:
+                choice = input("请输入操作指令(1-6):")
+                match choice:
+                    case "1":
+                        self.add_student()
+                    case "2":
+                        self.update_student()
+                    case "3":
+                        self.delete_student()
+                    case "4":
+                        self.search_student()
+                    case "5":
+                        self.show_student()
+                    case "6":
+                        print("Bye~")
+                        break
+                    case _:
+                        print("输入错误，请输入1-6之间的数字")
+            except  ValueError:
+                print("数据输入错误，请检查后重新输入")
+            except Exception:
+                print("程序运行出错了，请重新选择")
 if __name__ == "__main__":
     studentsystem =StudentSystem()
     studentsystem.run()
