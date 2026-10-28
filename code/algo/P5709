@@ -1,0 +1,14 @@
+m,t,s=map(int,input().split())
+if t!=0:
+    e = s/t
+else:
+    e=m
+if e%1==0:
+    e=int(e)
+else:
+    e=int(e+1)
+m-=e
+if m >=0:
+    print(m)
+else:
+    print(0)
