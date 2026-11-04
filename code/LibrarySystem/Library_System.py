@@ -91,14 +91,14 @@ class LibrarySystem:
         self.load_members_data()
     def load_books_data(self):
         #加载data/books.json中的数据
-        with open('data/books.json','r',encoding="utf-8")as f:
+        with open('LibrarySystem/books.json','r',encoding="utf-8")as f:
             books_data = json.load(f)
             for book in books_data:
                 self.books[book["编号"]]=Book(book["编号"],book["标题"],book["作者"],book["数量"])
             print("书籍数据加载成功")
 
     def load_members_data(self):
-        with open('data/members.json','r',encoding="utf-8")as f:
+        with open('LibrarySystem/members.json','r',encoding="utf-8")as f:
             members_data = json.load(f)
             for member in members_data:
                 if member ["卡号"].startswith("N"):
